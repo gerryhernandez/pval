@@ -32,13 +32,15 @@ complex128`
 
 var templateStr = `
 func {{.TypeNameTitle}}(val {{.TypeName}}) *{{.TypeName}} {
-	return &val
+	valCopy := *&val
+	return &valCopy
 }
 
 func {{.TypeNameTitle}}s(vals ...{{.TypeName}}) []*{{.TypeName}} {
 	var result []*{{.TypeName}}
 	for _, val := range vals {
-		result = append(result, &val)
+		valCopy := *&val
+		result = append(result, &valCopy)
 	}
 	return result
 }
