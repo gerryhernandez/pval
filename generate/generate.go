@@ -12,7 +12,8 @@ var header = `package pval
 
 `
 
-var typeNames = `string
+var typeNames = `bool
+string
 int
 uint8
 uint16

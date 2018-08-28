@@ -1,5 +1,19 @@
 package pval
 
+func Bool(val bool) *bool {
+	valCopy := *&val
+	return &valCopy
+}
+
+func Bools(vals ...bool) []*bool {
+	var result []*bool
+	for _, val := range vals {
+		valCopy := *&val
+		result = append(result, &valCopy)
+	}
+	return result
+}
+
 func String(val string) *string {
 	valCopy := *&val
 	return &valCopy
